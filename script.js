@@ -1,13 +1,13 @@
 // filepath: script.js
 // ...existing code...
-// ฟังก์ชันเริ่มเกมใหม่
-function resetGame() {
- initializeGame();
- document.getElementById("resultContainer").innerHTML = "";
- document.getElementById("guessInput").value = "";
- document.getElementById("guessInput").focus();
-}
-// ...existing code...
+// เพิ่มการ select text เมื่อคลิก input
+document.addEventListener("DOMContentLoaded", function () {
+ const guessInput = document.getElementById("guessInput");
+ guessInput.addEventListener("focus", function () {
+ this.select();
+ });
+});
+// ...existing code..
 อัปเดต index.html เพิ่ม button:
 <!-- filepath: index.html -->
 <!-- ...existing code... -->
