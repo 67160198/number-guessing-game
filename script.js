@@ -49,3 +49,28 @@ function checkGuess() {
  guessInput.focus();
 }
 // ...existing code...
+// filepath: script.js
+// ตัวแปรนับจํานวนครั้งที่ทาย
+let attemptCount = 0;
+// ฟังก์ชันอัปเดตจํานวนครั้ง
+function updateDisplay() {
+ const attemptsContainer = document.getElementById("attemptsContainer");
+ attemptsContainer.textContent = `ทายแล้ว: ${attemptCount} ครั้ง`;
+}
+//และแก้ไข checkGuess() ให้เพิ่ม attemptCount:
+function checkGuess() {
+ const guessInput = document.getElementById("guessInput");
+ const guessValue = parseInt(guessInput.value);
+ const resultContainer = document.getElementById("resultContainer");
+ // ... validation code ...
+ attemptCount++; // เพิ่มตรงนี้
+ if (guessValue === secretNumber) {
+ resultContainer.innerHTML = `
+ <div class="alert alert-success" role="alert">
+ <h5>✓ ถูกต้อง!</h5>
+ <p>คุณทายถูกในครั้งที่ ${attemptCount}</p>
+ </div>
+ `;
+ }
+ // ... rest of code ...
+}
